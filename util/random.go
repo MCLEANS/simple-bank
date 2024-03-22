@@ -18,12 +18,13 @@ func init() {
 	rand.Seed(time.Now().UnixNano())
 }
 
-func randomInt(min int64, max int64) int64 {
+func RandomInt(min int64, max int64) int64 {
 
 	return min + rand.Int63n(max-min+1)
 }
 
-func randomString(n int) string {
+func RandomString(n int) string {
+
 	var sb strings.Builder
 	k := len(alphabet)
 
@@ -41,21 +42,24 @@ func randomString(n int) string {
 /*
 generates a random name for an owner
 */
-func randomOwner() string {
-	return randomString(6)
+func RandomOwner() string {
+
+	return RandomString(6)
 }
 
 /*
 generates a random amount of money
 */
-func randomMoney() int64 {
-	return randomInt(0, 10000)
+func RandomMoney() int64 {
+
+	return RandomInt(0, 10000)
 }
 
 /*
 generate an random currency
 */
-func randomCurrency() string {
+func RandomCurrency() string {
+
 	currencies := []string{"KSH", "USD"}
 	n := len(currencies)
 
