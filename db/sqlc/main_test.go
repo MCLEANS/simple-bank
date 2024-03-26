@@ -2,7 +2,11 @@ package db
 
 import (
 	"database/sql"
+	"log"
+	"os"
 	"testing"
+
+	_ "github.com/lib/pq"
 )
 
 /*
@@ -12,10 +16,10 @@ Contains a DBTX member which can either be a connection or a transaction
 */
 var testQueries *Queries
 
-const {
+const (
 	dbDriver = "postgres"
 	dbSource = "postgresql://root:secret@localhost:5432/simplebank?sslmode=disable"
-}
+)
 
 /*
 *
@@ -26,8 +30,8 @@ func TestMain(m *testing.M) {
 
 	conn, err := sql.Open(dbDriver, dbSource)
 
-	if(error != nil){
-		log.Fatal("Cannot connect to Db", error)
+	if err != nil {
+		log.Fatal("Cannot connect to Db", err)
 	}
 
 	/**
@@ -38,5 +42,5 @@ func TestMain(m *testing.M) {
 	/**
 	This will run the tests and return a error code to tell us whether the test passed or failed
 	**/
-	os.Exit(m.run())
+	os.Exit(m.Run())
 }

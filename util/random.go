@@ -55,6 +55,11 @@ func RandomMoney() int64 {
 	return RandomInt(0, 10000)
 }
 
+func RandomID() int64 {
+
+	return RandomInt(0, 10000)
+}
+
 /*
 generate an random currency
 */
